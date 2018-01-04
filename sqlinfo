@@ -1,0 +1,9 @@
+bdd statisfoot info
+nom d'utilisateur : statisfoot
+nom d'hote: local, localhost
+mot de passe:yjnRTeqXKgStt29S
+
+script création utilisateur
+CREATE USER 'statisfoot'@'localhost' IDENTIFIED WITH mysql_native_password AS '***';GRANT USAGE ON *.* TO 'statisfoot'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;CREATE DATABASE IF NOT EXISTS `statisfoot`;GRANT ALL PRIVILEGES ON `statisfoot`.* TO 'statisfoot'@'localhost';GRANT ALL PRIVILEGES ON `statisfoot\_%`.* TO 'statisfoot'@'localhost';
+
+CREATE TABLE `statisfoot`.`utilisateur` ( `id` INT NOT NULL AUTO_INCREMENT , `nom` INT NOT NULL , `prenom` INT NOT NULL , `mail` VARCHAR NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
