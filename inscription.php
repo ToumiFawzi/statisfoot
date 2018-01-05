@@ -1,21 +1,3 @@
-<?php
-    /*$filename_user = "identifiantsjson.txt";
-    $login = file_get_contents($filename_user);/* appel de fonction pour lire le contenu du fichier*/
-   /* $user_tab = json_decode($login, true);*/
-   
-/*var_dump($user_tab); permet d'afficher avec plus d'info que echo "exit" coupe le code
-exit();*/
-   /* $message = "";
-    
-    if(isset($_POST['login']) && isset($_POST['mdp'])) { /* isset permet de determiner si une variable est pas vide*/
-      /*  if($_POST['login'] === $user_tab["identifiant"] && $_POST['mdp'] === $user_tab["password"]) {
-            $isAuthentifie = true;  
-        } else {
-            $isAuthentifie = false;
-            $message = "erreur d'authentification!";
-        }
-    } */  
-?>
 
     <!DOCTYPE html>
     <html lang="fr">
@@ -38,11 +20,9 @@ exit();*/
         </div>
 
         <div id="titre">Statisfoot <br/> Ensemble, révélons les stars de demain!</div>
-    </header>
-        <!-- <?php if(!$isAuthentifie) {  echo $message; ?> -->
-
+    </header> 
         <div class="container">
-            <form action="loginjson.php" method="post">
+            <form action="inscriptbdd.php" method="post">
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8">
                         <h1> Inscription <br/> <small> Merci de renseigner vos informations </small></h1>
@@ -53,13 +33,13 @@ exit();*/
                     <div class="col-md-offset-2 col-md-3">
                         <div class="form-group">
                             <label for="Nom">Nom</label>
-                            <input type="text" class="form-control" id="nom" placeholder="Nom">
+                            <input name='nom' type="text" class="form-control" id="nom" placeholder="Nom">
                         </div>
                     </div>
                     <div class="col-md-offset-1 col-md-3">
                         <div class="form-group">
                             <label for="Prenom">Prénom</label>
-                            <input type="text" class="form-control" id="prenom" placeholder="Prénom">
+                            <input 'name="prenom' type="text" class="form-control" id="prenom" placeholder="Prénom">
                         </div>
                     </div>
                 </div>
@@ -87,8 +67,8 @@ exit();*/
                         </div>
                     </div>
                 </div>
-
-
+            </form>
+        </div>
                 <br/>
 
                 <input id="connection" type="submit" value="S'inscrire ">
@@ -96,13 +76,7 @@ exit();*/
 
 
 
-                <?php }
-    else { ?>
-
-                <div style=" border: 1px solid blue;">Authentification réussie</div>
-
-                <?php } ?>
-
+        
     </body>
 
     </html>

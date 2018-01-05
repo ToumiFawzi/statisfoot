@@ -16,7 +16,7 @@
         <div id="titre">Statisfoot <br/> Ensemble, révélons les stars de demain!</div>
     </header>
     <div class="container">
-        <form action="inscriptbdd.php" method="post">
+        <form action="inscriptbdd.php" method="POST">
             <div class="row">
                 <div class="col-md-offset-2 col-md-8">
                     <h1> Inscription Entraîneur<br/> <small> Merci de renseigner vos informations </small></h1>
@@ -42,13 +42,13 @@
                 <div class="col-md-offset-2 col-md-3 ">
                     <div class="form-group ">
                         <label for="ville ">Ville</label>
-                        <input type="text " class="form-control " id="ville " placeholder="Ville" required/>
+                        <input type="text " name="ville" class="form-control " id="ville " placeholder="Ville" required />
                     </div>
                 </div>
                 <div class="col-md-offset-1 col-md-3 ">
                     <div class="form-group ">
                         <label for="pays ">Pays</label>
-                        <input type="text " class="form-control " id="pays " placeholder="Pays" required/>
+                        <input type="text " name="pays" class="form-control " id="pays " placeholder="Pays" required/>
                     </div>
                 </div>
             </div>
@@ -57,13 +57,13 @@
                 <div class="col-md-offset-2 col-md-3">
                     <div class="form-group">
                         <label for="tel">Téléphone</label>
-                        <input type="tel" class="form-control" id="tel" placeholder="Téléphone">
+                        <input type="tel" name="tel" class="form-control" id="tel" placeholder="Téléphone" required/>
                     </div>
                 </div>
                 <div class="col-md-offset-1 col-md-3">
                     <div class="form-group">
                         <label for="email">Adresse Mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="Entrer email" required/>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Entrer email" required />
                     </div>
                 </div>
 
@@ -73,14 +73,14 @@
                 <div class="col-md-offset-2 col-md-3">
                     <div class="form-group">
                         <label for="club">Club</label>
-                        <input type="text" class="form-control" id="club" placeholder="Nom du club" required/>
+                        <input type="text" name="club" class="form-control" id="club" placeholder="Nom du club" required/>
                     </div>
                 </div>
 
                 <div class="col-md-offset-1 col-md-3">
                     <div class="form-group">
                         <label for="num">Numéro d'affiliation FFF</label>
-                        <input type="number" class="form-control" id="num" placeholder="ID FFF" required/>
+                        <input type="number" name="number" class="form-control" id="num" placeholder="ID FFF" required/>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                 <div class="col-md-offset-2 col-md-3">
                     <div class="form-group">
                         <label for="categorie">catégorie</label>
-                        <select id="categorie" class="form-control" required>
+                        <select id="categorie" name="categorie" class="form-control"required >
         <option selected>choisir...</option>
         <option>U 13</option>
         <option>U 14</option>
@@ -105,7 +105,7 @@
                 <div class="col-md-offset-1 col-md-3">
                     <div class="form-group">
                         <label for="niveau">Niveau</label>
-                        <select id="niveau" class="form-control" required>
+                        <select id="niveau" name="niveau" class="form-control" required>
         <option selected>choisir...</option>
         <option>DISTRICT 1</option>
         <option>DISTRICT 2</option>
@@ -125,31 +125,34 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-offset-2 col-md-3">
+                <div class="col-md-offset-4 col-md-3">
                     <div class="form-group">
                         <label for="identifiant">Identifiant</label>
-                        <input type="text" class="form-control" id="identifiant" placeholder="clubcatégorie">
+                        <input type="text" name="identifiant" class="form-control" id="identifiant" placeholder="clubcatégorie"required>
                     </div>
                 </div>
             </div>
 
 
-            <div class="row">
-                <div class="col-md-offset-2 col-md-3">
-                    <div class="form-group">
-                        <label for="password">Mot de passe</label>
-                        <input type="password" class="form-control" id="password" placeholder="Mot de passe">
+         
+                <div class="row">
+                   
+                    <div class="col-md-offset-1 col-md-3">
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Mot de passe"required/>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-md-offset-1 col-md-3">
-                    <div class="form-group">
-                        <label for="vpassword">Vérification mot de passe</label>
-                        <input type="password" class="form-control" id="vpassword" placeholder="Vérification mot de passe">
+                    <div class="col-md-offset-2 col-md-3">
+                        <div class="form-group">
+                            <label for="vpassword">vérification du mot de passe</label>
+                            <input type="password" name="vpassword" class="form-control" id="vpassword" placeholder="retaper mot de passe" required/>
+                        </div>
                     </div>
-                </div>
-            </div>
+        
 
+                </div>
+          
             <center><a href="connexion.php">Déjà un compte ? Connectez vous </a></center>
 
 

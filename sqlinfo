@@ -6,4 +6,11 @@ mot de passe:yjnRTeqXKgStt29S
 script création utilisateur
 CREATE USER 'statisfoot'@'localhost' IDENTIFIED WITH mysql_native_password AS '***';GRANT USAGE ON *.* TO 'statisfoot'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;CREATE DATABASE IF NOT EXISTS `statisfoot`;GRANT ALL PRIVILEGES ON `statisfoot`.* TO 'statisfoot'@'localhost';GRANT ALL PRIVILEGES ON `statisfoot\_%`.* TO 'statisfoot'@'localhost';
 
-CREATE TABLE `statisfoot`.`utilisateur` ( `id` INT NOT NULL AUTO_INCREMENT , `nom` INT NOT NULL , `prenom` INT NOT NULL , `mail` VARCHAR NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `statisfoot`.`entraineurs` ( `id` INT NOT NULL AUTO_INCREMENT , `nom` TEXT NOT NULL , `prenom` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `entraineurs` ADD `ville` TEXT NOT NULL AFTER `prenom`;
+ALTER TABLE `entraineurs` ADD `pays` TEXT NOT NULL AFTER `ville`, ADD `tel` VARCHAR(15) NOT NULL AFTER `pays`, ADD `email` VARCHAR(30) NOT NULL AFTER `tel`;
+ALTER TABLE `entraineurs` CHANGE `tel` `tel` DOUBLE NOT NULL;
+
+CREATE TABLE `statisfoot`.`membres` ( `id` INT NOT NULL AUTO_INCREMENT , `identifiant` TEXT NOT NULL , `motdepasse` VARCHAR(30) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
