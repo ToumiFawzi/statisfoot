@@ -1,12 +1,5 @@
 <?php
-   /* $filename_user = "identifiantsjson.txt";
-    $login = file_get_contents($filename_user);/* appel de fonction pour lire le contenu du fichier*/
-   /* $user_tab = json_decode($login, true);
-   
- var_dump($user_tab); permet d'afficher avec plus d'info que echo "exit" coupe le code
-exit();
-    $message = "";
-    
+/*    
     if(isset($_POST['login']) && isset($_POST['mdp'])) {*/ /* isset permet de determiner si une variable est pas vide*/
      /*   if($_POST['login'] === $user_tab["identifiant"] && $_POST['mdp'] === $user_tab["password"]) {
             $isAuthentifie = true;  
@@ -24,7 +17,7 @@ exit();
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/styleco.css">
         <title>Page de connexion</title>
     </head>
 

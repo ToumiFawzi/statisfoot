@@ -88,7 +88,7 @@
                 <div class="col-md-offset-2 col-md-3">
                     <div class="form-group">
                         <label for="categorie">catégorie</label>
-                        <select id="categorie" name="categorie" class="form-control"required >
+                        <select id="categorie" name="categorie" class="form-control" required>
         <option selected>choisir...</option>
         <option>U 13</option>
         <option>U 14</option>
@@ -128,31 +128,31 @@
                 <div class="col-md-offset-4 col-md-3">
                     <div class="form-group">
                         <label for="identifiant">Identifiant</label>
-                        <input type="text" name="identifiant" class="form-control" id="identifiant" placeholder="clubcatégorie"required>
+                        <input type="text" name="identifiant" class="form-control" id="identifiant" placeholder="clubcatégorie" required>
                     </div>
                 </div>
             </div>
 
 
-         
-                <div class="row">
-                   
-                    <div class="col-md-offset-1 col-md-3">
-                        <div class="form-group">
-                            <label for="password">Mot de passe</label>
-                            <input type="password" name="password" class="form-control" id="password" placeholder="Mot de passe"required/>
-                        </div>
-                    </div>
-                    <div class="col-md-offset-2 col-md-3">
-                        <div class="form-group">
-                            <label for="vpassword">vérification du mot de passe</label>
-                            <input type="password" name="vpassword" class="form-control" id="vpassword" placeholder="retaper mot de passe" required/>
-                        </div>
-                    </div>
-        
 
+            <div class="row">
+
+                <div class="col-md-offset-1 col-md-3">
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Mot de passe" required/>
+                    </div>
                 </div>
-          
+                <div class="col-md-offset-2 col-md-3">
+                    <div class="form-group">
+                        <label for="vpassword">vérification du mot de passe</label>
+                        <input type="password" name="vpassword" class="form-control" id="vpassword" placeholder="retaper mot de passe" required/>
+                    </div>
+                </div>
+
+
+            </div>
+
             <center><a href="connexion.php">Déjà un compte ? Connectez vous </a></center>
 
 

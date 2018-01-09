@@ -1,8 +1,6 @@
 <?php
 /*on récupère les valeurs du formulaire*/
-
 $nom = $_POST['nom'];
-
 $prenom = $_POST['prenom'];
 $ville = $_POST['ville'];
 $pays = $_POST['pays'];
@@ -15,16 +13,13 @@ $niveau = $_POST['niveau'];*/
 $identifiant = $_POST['identifiant'];
 $mdp = $_POST['password'];
 $mdpv = $_POST['vpassword'];
-
 /*vérification du mot de passe*/
  if($_POST['password'] ==$_POST['vpassword'])
   {
 /*Connexion à la base de donnée*/
  try
  {
-
 	$bdd = new PDO('mysql:host=localhost;dbname=statisfoot;charset=utf8', 'statisfoot', 'yjnRTeqXKgStt29S');
-
 } 
 catch (Exception $e)
 {
@@ -57,4 +52,5 @@ catch (Exception $e)
     {
      echo 'mots de passes pas identiques retrourner sur la page précedente';
                       } 
+
 ?>

@@ -14,3 +14,15 @@ ALTER TABLE `entraineurs` ADD `pays` TEXT NOT NULL AFTER `ville`, ADD `tel` VARC
 ALTER TABLE `entraineurs` CHANGE `tel` `tel` DOUBLE NOT NULL;
 
 CREATE TABLE `statisfoot`.`membres` ( `id` INT NOT NULL AUTO_INCREMENT , `identifiant` TEXT NOT NULL , `motdepasse` VARCHAR(30) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `statisfoot`.`joueurs` ( `id` INT NOT NULL AUTO_INCREMENT , `nom` TEXT NOT NULL , `prenom` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `joueurs` ADD `datedenaissance`  VARCHAR(10)  NOT NULL AFTER `prenom`, ADD `nationalite` TEXT NOT NULL AFTER `datedenaissance`, ADD `taille` VARCHAR(10) NOT NULL AFTER `nationalite`, ADD `poids` INT NOT NULL AFTER `taille`, ADD `diplome` TEXT NOT NULL AFTER `poids`, ADD `situation` TEXT NOT NULL AFTER `diplome`, ADD `equipe` VARCHAR(50) NOT NULL AFTER `situation`;
+ALTER TABLE `joueurs` ADD `poste` VARCHAR(50) NOT NULL AFTER `diplome`;
+
+
+
+CREATE TABLE `statisfoot`.`clubs` ( `id` INT NOT NULL AUTO_INCREMENT , `nomclub` TEXT NOT NULL , `numfff` INT NOT NULL , `niveau` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `statisfoot`.`categories` ( `id` INT NOT NULL AUTO_INCREMENT , `categorie` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `statisfoot`.`equipes` ( `id` INT NOT NULL AUTO_INCREMENT , `equipe` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

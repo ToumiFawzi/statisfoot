@@ -1,6 +1,7 @@
 body{
-text-align: center;
- 
+
+  text-align: center;
+
 }
 
 
@@ -90,43 +91,20 @@ h4{
 p{
 
   color: #333366;
-  font-size: 13px;
+  font-size: 15px;
   font-family: fantasy;
 
 }
 .centre{
   text-align: center;
 }
+button, #annu{
+    color:white;
+    background-color: #002466;
+    text-align: center;
+    height: 40px;
+    width:100px;
+    border-radius: 5px;
+    margin-left: 350px;
 
-
-
-
-button{
-    
-    width: 180px;
-    
 }
-
-
-aside{
-    
-    height: 900px;
-    width: 300px;
-    padding-top: 80px;
-    border: 0px solid black;
-    display: inline-block;
-}
-
-
-
-
-.info{
-    
-    
-    height: 100px;
-    width: 200px;
-    margin-top: 50px;
-
-    
-}
-

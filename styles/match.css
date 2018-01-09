@@ -1,6 +1,7 @@
 body{
-text-align: center;
- 
+
+  text-align: center;
+
 }
 
 
@@ -111,22 +112,19 @@ button{
 aside{
     
     height: 900px;
-    width: 300px;
+    width: 400px;
     padding-top: 80px;
-    border: 0px solid black;
-    display: inline-block;
-}
-
-
-
-
-.info{
-    
-    
-    height: 100px;
-    width: 200px;
-    margin-top: 50px;
-
     
 }
 
+
+
+
+ul{
+    
+    padding-top: 80px;
+    text-align: left;
+    list-style-type: none;
+    
+    
+}

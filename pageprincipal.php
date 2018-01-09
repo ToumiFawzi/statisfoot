@@ -10,16 +10,43 @@
 </head>
 
 <body>
+   
+    
+    
+    
+    
     <header>
-        <a href="pageprincipal.php"> <img id="logo" src="img/logo2.png" alt="logostatisfoot" /></a>
+       <nav class="navbar navbar-inverse">
+           <div class="container-fluid">
+               <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+                   <a class="navbar-brand" href="pageprincipal.php">Statisfoot</a>
+               </div>
+               <div class="collapse navbar-collapse" id="myNavbar">
+                   <ul class="nav navbar-nav">
+                       <li class="dropdown">
+                           <a class="dropdown-toggle" data-toggle="dropdown" href="http://www.facebook.com/Statisfoot/">facebook </a>
+                       <li><a href="http://twitter.com/STATISFOOT_">twitter</a></li>
+                       <li><a href="statisfoot.com">Blog</a></li>
+                   </ul>
+                   <ul class="nav navbar-nav navbar-right">
+                       <li><a href="inscriptionentraineur.php"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
+                       <li><a href="connexion.php"><span class="glyphicon glyphicon-log-in"></span> connexion</a></li>
+                   </ul>
+               </div>
+           </div>
+       </nav>
+       <a href="pageprincipal.php"> <img id="logo" src="img/logo2.png" alt="logostatisfoot" /></a>
 
-        <div id="boutton">
-            <input type="button" name="connexion.php" value="Se connecter" onclick="self.location.href='connexion.php'" onclick>
-            <input type="button" name="inscription.php" value="S'inscrire" onclick="self.location.href='inscriptionentraineur.php'" onclick>
-        </div>
-
-        <div id="titre">Statisfoot <br/> Ensemble, révélons les stars de demain!</div>
-    </header>
+       <div id="titre">Statisfoot <br/> Ensemble, révélons les stars de demain!</div>
+   </header>
+    
+    
+    
     <h1>STATISFOOT</h1>
     <div class="centre">
         <br/>
@@ -36,7 +63,7 @@
         </div>
 
         <div class="second">
-            <a href="entraineurs.html"><img src="img/entraineur.png" alt="entraineur"></a>
+            <a href="entraineurs.php"><img src="img/entraineur.png" alt="entraineur"></a>
             <h4>Entraîneurs</h4>
 
             <p>Suivez au quotidien les performances de vos joueurs et de vos adversaires grâce à nos statistiques.</p>
