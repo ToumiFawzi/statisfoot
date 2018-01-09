@@ -1,132 +1,93 @@
-body{
-text-align: center;
- 
-}
-
-
-
-header{
+header {
     background-color: #cc3433;
     height: 200px;
 
 }
-#titre{
+
+#titre {
     text-align: center;
-    color:#002466;
+    color: #002466;
     font-size: 50px;
 }
-#boutton{
-    float:right;
+
+#boutton {
+    text-align: center;
 }
-#logo{
-    float:left;
-   background-color:transparent;
-height: 150px;
-width: 150px;
 
-}
-.first{
-
-  height:400px;
-  width:400px;
-  border:0px solid black;
-  display: inline-block;
-  float: center;
-
-
+#logo {
+    float: left;
+    background-color: transparent;
+    height: 150px;
+    width: 150px;
 
 }
 
 
-.second{
+img {
 
-  height:400px;
-  width:400px;
-  border: 0px solid black;
-  display: inline-block;
-  float: center;
+    height: 200px;
+    width: 400px;
 
 
 }
 
 
-.third{
+h3 {
 
-  height:400px;
-  width:400px;
-  border: 0px solid black;
-  display: inline-block;
-  float: center;
-
-
-}
-
-img{
-
-  height: 200px;
-  width: 400px;
-
-
-}
-
-
-h1{
-
-  color: #cc3433;
-  text-align: center;
-  font-family: fantasy;
+    color: #cc3433;
+    text-align: center;
+    font-family: fantasy;
 
 }
 
 
 
-h4{
+h4 {
 
-  color: #e33c3c;
-  text-align: center;
-
-}
-
-p{
-
-  color: #333366;
-  font-size: 13px;
-  font-family: fantasy;
+    color: #e33c3c;
+    text-align: center;
 
 }
-.centre{
-  text-align: center;
+
+p {
+
+    color: #333366;
+    font-size: 13px;
+    font-family: fantasy;
+
 }
 
 
 
+button {
 
-button{
-    
     width: 180px;
-    
+
 }
 
 
-aside{
-    
-    height: 900px;
-    width: 300px;
-    padding-top: 80px;
-    border: 0px solid black;
-    display: inline-block;
-}
+.info {
 
 
-
-
-.info{
-    
-    
     height: 100px;
     width: 200px;
     margin-top: 50px;
-
+    font-size: 30px;
+    color:#333366;
     
+
+
 }
 
+tr,th,td{
+    color:#333366;
+    text-align: center;
+    width: 200px;
+    height: 100px;
+   
+}
+table,tr,th,td{
+    border: 2px solid #e33c3c;
+    
+    
+}

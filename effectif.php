@@ -50,102 +50,54 @@
 
         <div class="info">Entrainé par: <br/> Nom du club:
         </div>
+        <h4>Echo equipe</h4>
 
+       <center> <table>
+            <CAPTION> liste des joueurs </CAPTION>
+            <tr>
+                <th> Poste</th>
+                <th> Nom</th>
+                <th> Prénom</th>
+            </tr>
 
-
-        <div id="liste">
-
-
-
-
-            <aside>
-                <h4>Equipe 1</h4>
-
-
-
-
-                <?php
-$bdd = new PDO('mysql:host=localhost;dbname=statisfoot','root','fawzi');
-
-$requete = $bdd->query('SELECT * FROM joueurs');
-
-while($data = $requete->fetch()){
-
-    echo '<p>'.$data['nom'].'</p>';
-    echo '<p>'.$data['prenom'].'</p>';
-    echo '<p>'.$data['poste'].'</p>';
+            <?php
+try
+{
+    
+    $bdd = new PDO('mysql:host=localhost;dbname=statisfoot','root','fawzi');
+     
+     
+    // On recupere tout le contenu de la table news
+$reponse = $bdd->query('SELECT poste, nom, prenom FROM joueurs');
+  
+// On affiche le resultat
+while ($donnees = $reponse->fetch())
+{
+    //On affiche les données dans le tableau
+    echo "</tr>";
+    echo "<td> $donnees[poste] </td>";
+    echo "<td> $donnees[nom] </td>";
+    echo "<td> $donnees[prenom] </td>";
+    echo "</tr>";
+ 
+     
 }
-
-
-$requete->closeCursor();
+$reponse->closeCursor();
+}
+catch(Exception $e)
+{
+    die('Erreur : '.$e->getMessage());
+}
 ?>
 
-            </aside>
+        </table>
+        </center>
+    </div>
+    
+<br/>
 
-
-            <aside>
-                <h4>Equipe 2</h4>
-
-
-
-
-                <?php
-$bdd = new PDO('mysql:host=localhost;dbname=statisfoot','root','fawzi');
-
-$requete = $bdd->query('SELECT * FROM joueurs');
-
-while($data = $requete->fetch()){
-
-    echo '<p>'.$data['nom'].'</p>';
-    echo '<p>'.$data['prenom'].'</p>';
-    echo '<p>'.$data['poste'].'</p>';
-}
-
-
-$requete->closeCursor();
-?>
-
-            </aside>
-
-
-
-            <aside>
-                <h4>Equipe 3</h4>
-
-
-
-
-
-
-
-
-                <?php
-$bdd = new PDO('mysql:host=localhost;dbname=statisfoot','root','fawzi');
-
-$requete = $bdd->query('SELECT * FROM joueurs');
-
-while($data = $requete->fetch()){
-
-    echo '<p>'.$data['nom'].'</p>';
-    echo '<p>'.$data['prenom'].'</p>';
-    echo '<p>'.$data['poste'].'</p>';
-}
-
-
-$requete->closeCursor();
-?>
-
-            </aside>
-
-
-
-            <div class="container">
-                <a href="creation.php"><button type="button" class="btn btn-primary btn-lg"><p>Créer une équipe</p></button></a>
-            </div>
-
-        </div>
-
-
+    <div id="boutton">
+        <a href="creation.php"><button type="button" class="btn btn-primary btn-lg"><p>Créer une équipe</p></button></a>
     </div>
 
 

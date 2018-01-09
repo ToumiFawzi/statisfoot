@@ -26,3 +26,5 @@ CREATE TABLE `statisfoot`.`clubs` ( `id` INT NOT NULL AUTO_INCREMENT , `nomclub`
 CREATE TABLE `statisfoot`.`categories` ( `id` INT NOT NULL AUTO_INCREMENT , `categorie` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 CREATE TABLE `statisfoot`.`equipes` ( `id` INT NOT NULL AUTO_INCREMENT , `equipe` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `statisfoot`.`rencontres` ( `id` INT NOT NULL AUTO_INCREMENT , PRIMARY KEY (`id`)) ENGINE = InnoDB;

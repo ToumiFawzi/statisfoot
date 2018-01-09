@@ -54,3 +54,4 @@ catch (Exception $e)
                       } 
 
 ?>
+<meta http-equiv="refresh" content="1; url=connexion.php">
