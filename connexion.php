@@ -1,13 +1,37 @@
 <?php
-/*    
-    if(isset($_POST['login']) && isset($_POST['mdp'])) {*/ /* isset permet de determiner si une variable est pas vide*/
-     /*   if($_POST['login'] === $user_tab["identifiant"] && $_POST['mdp'] === $user_tab["password"]) {
-            $isAuthentifie = true;  
-        } else {
-            $isAuthentifie = false;
-            $message = "erreur d'authentification!"
+session_start();
+  //connection à la base de donnée
+    $bdd = new PDO('mysql:host=localhost;dbname=statisfoot','statisfoot','yjnRTeqXKgStt29S');
+
+//déclaration des variables
+if(isset($_POST['formconnect']))
+{
+    if (isset($_POST['identifiant'])) {
+    $identifiant = $_POST['identifiant'];
+}
+    if (isset($_POST['password'])) {
+    $mdp = sha1($_POST['password']);
+}
+       
+}
+//vérification du mot de passe et de l'identifiant
+
+    if(isset($_POST['identifiant']) && isset($_POST['password'])) {
+        $requser = $bdd->prepare("SELECT * FROM membres WHERE identifiant = ? AND motdepasse = ? ");
+        $requser -> execute(array($identifiant,$mdp));  
+            $userexist = $requser->rowCount();
+         if($userexist == 1)
+        {
+           $userinfo = $requser->fetch();
+             $_SESSION['id'] = $userinfo['id'];
+             $_SESSION['identifiant'] = $userinfo['identifiant'];
+             $_SESSION['password'] = $userinfo['password'];
+             header("Location: entraineurs.php?id= ".$_SESSION['id']);
         }
-    } */  
+        else{
+            echo "identifiant ou mot depasse incorrect ou inéxistant";
+        }
+    }
 ?>
     <!doctype html>
     <html lang="en">
@@ -42,10 +66,10 @@
                                 </div>
                                 <div class="col-xs-6">
                                     S'enregitrer en tant qu'<br/>
-                                <a href="inscription.php" > ambassadeur</a>
-                                <a href="inscriptionentraineur.php" > entraineur</a>
-                                <a href="inscription.php" > recruteur</a>
-                              
+                                    <a href="inscription.php"> ambassadeur</a>
+                                    <a href="inscriptionentraineur.php"> entraineur</a>
+                                    <a href="inscription.php"> recruteur</a>
+
                                 </div>
                             </div>
                             <hr>
@@ -53,54 +77,29 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
-                                        <div class="form-group">
-                                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="identifiant" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                                        </div>
-                                        <div class="form-group text-center">
-                                            <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                            <label for="remember"> Se souvenir</label>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-sm-offset-3">
-                                                    <input id="connection" type="submit" value="Se connecter ">
-                                                    
-<input type="button" onclick="window.location.replace('connexion.php')" value="Annuler" /> 
+                                    <form id="login-form" action="" method="post" role="form" style="display: block;">
 
-                                                </div>
-                                            </div>
+                                        <div class="form-group">
+                                            <input type="text" name="identifiant" id="identifiant" tabindex="1" class="form-control" placeholder="identifiant" value="">
                                         </div>
+
+                                        <div class="form-group">
+                                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="mot de passe">
+                                        </div>
+
+                                        <input id="connection" type="submit" name="formconnect" value="Se connecter ">
+
+                                        <input type="button" onclick="window.location.replace('connexion.php')" value="Annuler" />
+
+                                        <br/>
+                                        <br/>
+                                        <br/>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="text-center">
-                                                        <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">mot de passe oublié ?</a>
+                                                        <a href="" tabindex="5" class="forgot-password">mot de passe oublié ?</a>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
-                                        <div class="form-group">
-                                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-sm-offset-3">
-                                                    <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
                                                 </div>
                                             </div>
                                         </div>
@@ -112,6 +111,7 @@
                 </div>
             </div>
         </div>
+
     </body>
 
     </html>

@@ -54,7 +54,7 @@
 
 
         <div class="first">
-            <a href="passion.html"><img src="img/ambassadeurs.png" alt="ambassadeurs"></a>
+            <a href="connexion.php"><img src="img/ambassadeurs.png" alt="ambassadeurs"></a>
             <h4>Passionnés de foot</h4>
 
 
@@ -63,7 +63,7 @@
         </div>
 
         <div class="second">
-            <a href="entraineurs.php"><img src="img/entraineur.png" alt="entraineur"></a>
+            <a href="connexion.php"><img src="img/entraineur.png" alt="entraineur"></a>
             <h4>Entraîneurs</h4>
 
             <p>Suivez au quotidien les performances de vos joueurs et de vos adversaires grâce à nos statistiques.</p>
@@ -71,7 +71,7 @@
 
 
         <div class="third">
-            <a href="recruteurs.html"><img src= "img/recruteurs.png"  alt="recruteurs"></a>
+            <a href="connexion.php"><img src= "img/recruteurs.png"  alt="recruteurs"></a>
             <h4>Recruteurs/Agents</h4>
 
             <p>Accédez à notre base de données de joueurs évoluant aux 4 coins du monde.</p>

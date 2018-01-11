@@ -21,10 +21,15 @@ ALTER TABLE `joueurs` ADD `poste` VARCHAR(50) NOT NULL AFTER `diplome`;
 
 
 
-CREATE TABLE `statisfoot`.`clubs` ( `id` INT NOT NULL AUTO_INCREMENT , `nomclub` TEXT NOT NULL , `numfff` INT NOT NULL , `niveau` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 CREATE TABLE `statisfoot`.`categories` ( `id` INT NOT NULL AUTO_INCREMENT , `categorie` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 CREATE TABLE `statisfoot`.`equipes` ( `id` INT NOT NULL AUTO_INCREMENT , `equipe` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 CREATE TABLE `statisfoot`.`rencontres` ( `id` INT NOT NULL AUTO_INCREMENT , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `statisfoot`.`clubs` ( `id` INT NOT NULL AUTO_INCREMENT , `club` VARCHAR NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `clubs` ADD `numfff` VARCHAR(50) NOT NULL AFTER `club`;
+ALTER TABLE `clubs` ADD `niveau` TEXT NOT NULL AFTER `numfff`;
+ALTER TABLE `clubs` CHANGE `niveau` `niveau` VARCHAR(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;

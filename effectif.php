@@ -47,8 +47,9 @@
         <h3>Effectif</h3>
 
 
-
-        <div class="info">Entrainé par: <br/> Nom du club:
+        <div class="info">Entrainé par:  <br/> 
+                          Nom du club:   <br/>
+                          Niveau:         <br/>
         </div>
         <h4>Echo equipe</h4>
 
@@ -64,10 +65,10 @@
 try
 {
     
-    $bdd = new PDO('mysql:host=localhost;dbname=statisfoot','root','fawzi');
+    $bdd = new PDO('mysql:host=localhost;dbname=statisfoot','statisfoot','yjnRTeqXKgStt29S');
      
      
-    // On recupere tout le contenu de la table news
+    // On recupere tout le contenu de la table joueurs
 $reponse = $bdd->query('SELECT poste, nom, prenom FROM joueurs');
   
 // On affiche le resultat

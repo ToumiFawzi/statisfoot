@@ -1,3 +1,39 @@
+<?php 
+
+//connection a la base de donnée
+$bdd = new PDO('mysql:host=localhost;dbname=statisfoot;charset=utf8', 'statisfoot', 'yjnRTeqXKgStt29S');
+
+/*on récupère les valeurs du formulaire*/
+if(isset($_POST['formjoueur']))
+{
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $datedenaissance = $_POST['datedenaissance'];
+    $nationalite = $_POST['nationalite'];
+    $taille = $_POST['taille'];
+    $poids = $_POST['poids'];
+    $diplome = $_POST['diplome'];
+    $poste = $_POST['poste'];
+    $situation = $_POST['situation'];
+    
+    $req =$bdd->prepare("INSERT INTO `joueurs`(`nom`, `prenom`, `datedenaissance`, `nationalite`,`taille`, `poids`, `diplome`, `poste`, `situation`) VALUES(:nom, :prenom, :datedenaissance, :nationalite, :taille, :poids, :diplome, :poste, :situation)");
+       $req->execute(array(
+       'nom' => $nom,
+       'prenom' => $prenom,
+       'datedenaissance' => $datedenaissance,
+       'nationalite' => $nationalite,
+       'taille' => $taille,
+       'poids' => $poids, 
+       'diplome' => $diplome,
+       'poste' => $poste,
+       'situation' => $situation,
+         
+       ));
+
+    echo 'Joueur ajouté avec succès!';
+    header('Location: creation.php');
+}
+?>
 <!doctype html>
 <html lang="fr">
 
@@ -53,7 +89,7 @@
         <br/>
         <br/>
          <div class="container">
-                  <form action="creationbdd.php" method="post">
+                  <form action="" method="post">
         
         <div class="row">
                     <div class="col-md-offset-2 col-md-3">
@@ -141,7 +177,6 @@
                     </div>
                 </div>
                 
-   
                     
                     <div class="row">
                     <div class="col-md-offset-2 col-md-3">
@@ -159,32 +194,20 @@
                         </div>
                     </div>
             
- <div class="col-md-offset-1 col-md-3">
-                        <div class="form-group">
-                            <label for="equipe">Equipe</label>
-                            <select id="equipe" name="equipe" class="form-control" >
-        <option selected>choisir...</option>
-        <option>Equipe 1 </option>                       
-        <option>Equipe 2</option>
-        <option>Equipe 3</option>
-      </select>
-                        </div>
-                    </div>
+ 
                 </div>
  <br/>
            <br/> <br/>
-           <br/>
-        <br/>
-           <br/> <br/>
-           <br/>
-            <button type="submit" value="S'inscrire">Inscrire</button>
+          
+           <center>
+            <button type="submit" name=" formjoueur" value="S'inscrire">Inscrire</button>
             
                     
             <input id="retour" type="button" onclick="window.location.replace('effectif.php')" value="Terminer" />
 
             <input id="annu" type="button" onclick="window.location.replace('creation.php')" value="Annuler" />
  
-                    
+                    </center>
                                 </div>       
                     
                     </form>
