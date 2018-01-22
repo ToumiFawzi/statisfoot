@@ -7,29 +7,32 @@ script création utilisateur
 CREATE USER 'statisfoot'@'localhost' IDENTIFIED WITH mysql_native_password AS '***';GRANT USAGE ON *.* TO 'statisfoot'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;CREATE DATABASE IF NOT EXISTS `statisfoot`;GRANT ALL PRIVILEGES ON `statisfoot`.* TO 'statisfoot'@'localhost';GRANT ALL PRIVILEGES ON `statisfoot\_%`.* TO 'statisfoot'@'localhost';
 
 
-
-CREATE TABLE `statisfoot`.`entraineurs` ( `id` INT NOT NULL AUTO_INCREMENT , `nom` TEXT NOT NULL , `prenom` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
-ALTER TABLE `entraineurs` ADD `ville` TEXT NOT NULL AFTER `prenom`;
-ALTER TABLE `entraineurs` ADD `pays` TEXT NOT NULL AFTER `ville`, ADD `tel` VARCHAR(15) NOT NULL AFTER `pays`, ADD `email` VARCHAR(30) NOT NULL AFTER `tel`;
-ALTER TABLE `entraineurs` CHANGE `tel` `tel` DOUBLE NOT NULL;
-
-CREATE TABLE `statisfoot`.`membres` ( `id` INT NOT NULL AUTO_INCREMENT , `identifiant` TEXT NOT NULL , `motdepasse` VARCHAR(30) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
-
-CREATE TABLE `statisfoot`.`joueurs` ( `id` INT NOT NULL AUTO_INCREMENT , `nom` TEXT NOT NULL , `prenom` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
-ALTER TABLE `joueurs` ADD `datedenaissance`  VARCHAR(10)  NOT NULL AFTER `prenom`, ADD `nationalite` TEXT NOT NULL AFTER `datedenaissance`, ADD `taille` VARCHAR(10) NOT NULL AFTER `nationalite`, ADD `poids` INT NOT NULL AFTER `taille`, ADD `diplome` TEXT NOT NULL AFTER `poids`, ADD `situation` TEXT NOT NULL AFTER `diplome`, ADD `equipe` VARCHAR(50) NOT NULL AFTER `situation`;
-ALTER TABLE `joueurs` ADD `poste` VARCHAR(50) NOT NULL AFTER `diplome`;
+CREATE TABLE `statisfoot`.`membres` ( `id` INT NOT NULL AUTO_INCREMENT , `nom` TEXT NOT NULL , `prenom` TEXT NOT NULL , `ville` TEXT NOT NULL , `pays`  TEXT NOT NULL , `tel` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `identifiant` VARCHAR(255) NOT NULL , `motdepasse` TEXT NOT NULL , `profil` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB; 
 
 
+CREATE TABLE `statisfoot`.`joueurs` ( `id` INT NOT NULL AUTO_INCREMENT , `nom` TEXT NOT NULL , `prenom` TEXT NOT NULL , `datedenaissance` VARCHAR(255) NOT NULL , `nationalite` TEXT NOT NULL , `taille` VARCHAR(255) NOT NULL , `poids` INT NOT NULL , `diplome` TEXT NOT NULL , `poste` VARCHAR(255) NOT NULL , `situation` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `joueurs` ADD `equipe_id` INT NOT NULL AFTER `situation`;
 
-
-CREATE TABLE `statisfoot`.`categories` ( `id` INT NOT NULL AUTO_INCREMENT , `categorie` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
-
-CREATE TABLE `statisfoot`.`equipes` ( `id` INT NOT NULL AUTO_INCREMENT , `equipe` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `statisfoot`.`equipes` ( `id` INT NOT NULL AUTO_INCREMENT , `equipe` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `equipes` ADD `niveau` VARCHAR(255) NOT NULL AFTER `equipe`;
+ALTER TABLE `equipes` ADD `entraineur_id` INT NOT NULL AFTER `club_id`;
+ALTER TABLE `equipes` ADD `club_id` INT NOT NULL AFTER `niveau`;
 
 CREATE TABLE `statisfoot`.`rencontres` ( `id` INT NOT NULL AUTO_INCREMENT , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 
-CREATE TABLE `statisfoot`.`clubs` ( `id` INT NOT NULL AUTO_INCREMENT , `club` VARCHAR NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `statisfoot`.`clubs` ( `id` INT NOT NULL AUTO_INCREMENT , `club` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ALTER TABLE `clubs` ADD `numfff` VARCHAR(50) NOT NULL AFTER `club`;
-ALTER TABLE `clubs` ADD `niveau` TEXT NOT NULL AFTER `numfff`;
-ALTER TABLE `clubs` CHANGE `niveau` `niveau` VARCHAR(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+ALTER TABLE `clubs` ADD `categorie` VARCHAR(255) NOT NULL AFTER `niveau`;
+
+
+SELECT *
+FROM membres
+INNER JOIN equipes ON membres.id = equipes.entraineur_id
+
+SELECT *
+FROM equipes
+INNER JOIN joueurs ON equipes.id = joueurs.equipe_id
+
+
+

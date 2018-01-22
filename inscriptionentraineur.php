@@ -1,6 +1,11 @@
 <?php
+session_start();
+include("header.php");
+
 //connection a la base de donnée
-$bdd = new PDO('mysql:host=localhost;dbname=statisfoot;charset=utf8', 'statisfoot', 'yjnRTeqXKgStt29S');
+
+$bdd = new PDO('mysql:host=localhost;dbname=statisfoot;charset=utf8', 'statisfoot', 'yjnRTeqXKgStt29S',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
 /*on récupère les valeurs du formulaire*/
 if(isset($_POST['forminscription']))
 {  
@@ -18,13 +23,24 @@ if(isset($_POST['forminscription']))
     $mdp = sha1($_POST['password']);
     $mdpv = sha1($_POST['vpassword']);
     $equipe = $_POST['equipe'];
+    $profil = "entraineur";
     $message = "inscription validée";
     
           if($_POST['password'] ==$_POST['vpassword'])
               
               {
-                  //ecrire sur la tables entraineurs
-                $req =$bdd->prepare("INSERT INTO entraineurs(nom, prenom, ville, pays, tel, email) VALUES(:nom, :prenom, :ville, :pays, :tel, :email)");
+              
+               /*ecrire table clubs*/
+               $req_club = $bdd->prepare("INSERT INTO `clubs`(`club`, `numfff`, `categorie`) VALUES(:club, :numfff, :categorie)");
+                $req_club->execute(array(
+                'club' => $club, 
+                'numfff' => $numfff,
+                'categorie' => $categorie,  
+                ));
+              
+             
+               /*ecrire sur la tables membres*/
+               $req =$bdd->prepare("INSERT INTO membres(nom, prenom, ville, pays, tel, email, identifiant, motdepasse, profil) VALUES(:nom, :prenom, :ville, :pays, :tel, :email, :identifiant, :motdepasse, :profil)");
                  $req->execute(array(
                  'nom' => $nom,
                  'prenom' => $prenom,
@@ -32,57 +48,60 @@ if(isset($_POST['forminscription']))
                  'pays' => $pays,
                  'tel' => $tel,
                  'email' => $email,  
-            
+                 'identifiant' => $identifiant,
+                 'motdepasse' => $mdp,
+                 'profil' => $profil,
                  ));
-    
-                 /*ecrire table membres*/
-               $req_user =$bdd->prepare("INSERT INTO membres(identifiant, motdepasse) VALUES(:identifiant, :motdepasse)");
-               $req_user->execute(array(
-               'identifiant' => $identifiant,
-               'motdepasse' => $mdp, 
-            
-               ));
-
-     
-                /*ecrire table categories*/
-               $req_cat =$bdd->prepare("INSERT INTO `categories`(`categorie`) VALUES(:categorie)");
-               $req_cat->execute(array(
-               'categorie' => $categorie,
-            
-                ));
-     
-            /*ecrire table clubs*/
-             $req_club = $bdd->prepare("INSERT INTO `clubs`(`club`, `numfff`, `niveau`) VALUES(:club, :numfff, :niveau)");
-             $req_club->execute(array(
-             'club' => $club, 
-             'numfff' => $numfff,
-             'niveau' => $niveau,
-             ));
-     
+         
+                      $reqjointclub = $bdd ->prepare("SELECT clubs.id FROM clubs
+                                     LEFT OUTER JOIN equipes ON clubs.id = equipes.club_id
+                                    ORDER BY id DESC LIMIT 0, 1"  );
+                      $reqjointclub->execute();
+              
+                      $info = 0;
+              
+                      while ($resultatFetch = $reqjointclub->fetchColumn())
+                      {
+                       $info = intval ($resultatFetch);
+                      }
+              
+                      $jointentr = $bdd ->prepare("SELECT membres.id FROM membres
+                                     LEFT OUTER JOIN equipes ON membres.id = equipes.entraineur_id
+                                    ORDER BY id DESC LIMIT 0, 1"  );
+                      $jointentr->execute();
+              
+                      $entraineur_id = 0;
+              
+                      while ($resultatid = $jointentr->fetchColumn())
+                      {
+                       $entraineur_id = intval ($resultatid);
+                      }
+               
            /*ecrire table equipes*/
-            $req_eq =$bdd->prepare("INSERT INTO `equipes`(`equipe`) VALUES(:equipe)");
+           $req_eq =$bdd->prepare("INSERT INTO `equipes`(`equipe`,`niveau`,`club_id`,`entraineur_id`) VALUES(:equipe, :niveau, :club_id, :entraineur_id)");
             $req_eq->execute(array(
             'equipe' => $equipe,
-            
-             ));
-              
-             /*if($req. $req_user. $req_cat. $req_eq == 1)
-             {
-                
-             } */
-              echo $message;
-             header('Location: connexion.php');
-             /*else{
-                 echo "Erreur lors de l'inscription";
-             }*/
-        
-    }
- else{
-        $erreur = "Vos mot de passe ne sont pas identiques ";
-    }
-    
-  
+            'niveau' => $niveau,
+            'club_id'=>$info,
+            'entraineur_id'=>$entraineur_id,
+            ));
+               
+           }
+             else {
+                   $erreur = "Vos mot de passe ne sont pas identiques ";
+                  }
+          
+                    if($req_club==true AND $req_eq==true AND $req==true )
+                    {
+                    echo "inscription validée"AND header("Location:connexion.php");
+                    }
+                   else
+                    {
+                       echo "erreur lors de l'inscription veuillez verifier vos champs";
+                    }
+          
 }
+      
 ?>
 
 
@@ -98,11 +117,7 @@ if(isset($_POST['forminscription']))
 
     <body>
 
-        <header>
-            <a href="pageprincipal.php"> <img id="logo" src="img/logo2.png" alt="logostatisfoot" /></a>
 
-            <div id="titre">Statisfoot <br/> Ensemble, révélons les stars de demain!</div>
-        </header>
         <div class="container">
             <form action="" method="POST">
                 <div class="row">
@@ -123,7 +138,7 @@ if(isset($_POST['forminscription']))
                     <div class="col-md-offset-1 col-md-3">
                         <div class="form-group">
                             <label for="prenom">Prénom</label>
-                            <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Prénom" value="<?php if(isset($prenom)){echo $prenom; }?>"required/>
+                            <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Prénom" value="<?php if(isset($prenom)){echo $prenom; }?>" required/>
                         </div>
                     </div>
                 </div>
@@ -132,7 +147,7 @@ if(isset($_POST['forminscription']))
                     <div class="col-md-offset-2 col-md-3 ">
                         <div class="form-group ">
                             <label for="ville ">Ville</label>
-                            <input type="text " name="ville" class="form-control " id="ville " placeholder="Ville" value="<?php if(isset($ville)){echo $ville; }?>"required/>
+                            <input type="text " name="ville" class="form-control " id="ville " placeholder="Ville" value="<?php if(isset($ville)){echo $ville; }?>" required/>
                         </div>
                     </div>
                     <div class="col-md-offset-1 col-md-3 ">
@@ -153,7 +168,7 @@ if(isset($_POST['forminscription']))
                     <div class="col-md-offset-1 col-md-3">
                         <div class="form-group">
                             <label for="email">Adresse Mail</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Entrer email"value="<?php if(isset($email)){echo $email; }?>" required />
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Entrer email" value="<?php if(isset($email)){echo $email; }?>" required />
                         </div>
                     </div>
 
@@ -170,7 +185,7 @@ if(isset($_POST['forminscription']))
                     <div class="col-md-offset-1 col-md-3">
                         <div class="form-group">
                             <label for="numfff">Numéro d'affiliation FFF</label>
-                            <input type="text" name="numfff" class="form-control" id="numfff" placeholder="ID FFF" value="<?php if(isset($numff)){echo $numfff; }?>"/>
+                            <input type="text" name="numfff" class="form-control" id="numfff" placeholder="ID FFF" value="<?php if(isset($numff)){echo $numfff; }?>" />
                         </div>
                     </div>
                 </div>
@@ -178,7 +193,7 @@ if(isset($_POST['forminscription']))
                     <div class="col-md-offset-2 col-md-3">
                         <div class="form-group">
                             <label for="categorie">catégorie</label>
-                            <select id="categorie" name="categorie" class="form-control"value="<?php if(isset($categorie)){echo $categorie; }?>" required>
+                            <select id="categorie" name="categorie" class="form-control" value="<?php if(isset($categorie)){echo $categorie; }?>" required>
         <option selected>choisir...</option>
         <option>U 13</option>
         <option>U 14</option>
@@ -194,7 +209,7 @@ if(isset($_POST['forminscription']))
                     <div class="col-md-offset-1 col-md-3">
                         <div class="form-group">
                             <label for="equipe">Equipe</label>
-                            <select id="equipe" name="equipe" class="form-control"value="<?php if(isset($equipe)){echo $equipe; }?>" required>
+                            <select id="equipe" name="equipe" class="form-control" value="<?php if(isset($equipe)){echo $equipe; }?>" required>
         <option selected>choisir...</option>
         <option>Equipe 1 </option>                       
         <option>Equipe 2</option>
@@ -206,7 +221,7 @@ if(isset($_POST['forminscription']))
                     <div class="col-md-offset-2 col-md-3">
                         <div class="form-group">
                             <label for="niveau">Niveau</label>
-                            <select id="niveau" name="niveau" class="form-control"value="<?php if(isset($niveau)){echo $niveau; }?>" required>
+                            <select id="niveau" name="niveau" class="form-control" value="<?php if(isset($niveau)){echo $niveau; }?>" required>
         <option selected>choisir...</option>
         <option>DISTRICT 1</option>
         <option>DISTRICT 2</option>
@@ -230,7 +245,7 @@ if(isset($_POST['forminscription']))
                     <div class="col-md-offset-4 col-md-3">
                         <div class="form-group">
                             <label for="identifiant">Identifiant</label>
-                            <input type="text" name="identifiant" class="form-control" id="identifiant" placeholder="clubcatégorie"value="<?php if(isset($identifiant)){echo $identifiant; }?>" required>
+                            <input type="text" name="identifiant" class="form-control" id="identifiant" placeholder="clubcatégorie" value="<?php if(isset($identifiant)){echo $identifiant; }?>" required>
                         </div>
                     </div>
                 </div>
@@ -242,7 +257,7 @@ if(isset($_POST['forminscription']))
                     <div class="col-md-offset-1 col-md-3">
                         <div class="form-group">
                             <label for="password">Mot de passe</label>
-                            <input type="password" name="password" class="form-control" id="password" placeholder="Mot de passe"  required/>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Mot de passe" required/>
                         </div>
                     </div>
                     <div class="col-md-offset-2 col-md-3">

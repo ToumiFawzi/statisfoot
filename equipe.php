@@ -1,3 +1,18 @@
+<?php 
+session_start();
+  //connection à la base de donnée
+    $bdd = new PDO('mysql:host=localhost;dbname=statisfoot','statisfoot','yjnRTeqXKgStt29S');
+
+ //securité// 
+ if(isset($_GET['id']) AND $_GET['id'] > 0)
+ {
+    $getid = intval($_GET['id']); 
+    $requser = $bdd->prepare('SELECT * FROM membres WHERE id = ?');
+    $requser->execute(array($getid));
+     $userinfo = $requser->fetch();
+ }
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -32,7 +47,7 @@
            <li><a href="statistique.php">Statistique</a></li>
          </ul>
          <ul class="nav navbar-nav navbar-right">
-           <li><a href="pageprincipal.php"><span class="glyphicon glyphicon-user"></span> déconnexion</a></li>
+           <li><a href="deconnexion.php"><span class="glyphicon glyphicon-user"></span> déconnexion</a></li>
          </ul>
        </div>
      </div>

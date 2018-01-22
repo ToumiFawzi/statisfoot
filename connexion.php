@@ -1,7 +1,8 @@
 <?php
 session_start();
+include("header.php");
   //connection à la base de donnée
-    $bdd = new PDO('mysql:host=localhost;dbname=statisfoot','statisfoot','yjnRTeqXKgStt29S');
+    $bdd = new PDO('mysql:host=localhost;dbname=statisfoot;charset=utf8','statisfoot','yjnRTeqXKgStt29S');
 
 //déclaration des variables
 if(isset($_POST['formconnect']))
@@ -14,22 +15,23 @@ if(isset($_POST['formconnect']))
 }
        
 }
-//vérification du mot de passe et de l'identifiant
+//vérification si l'utilisateur existe
 
     if(isset($_POST['identifiant']) && isset($_POST['password'])) {
         $requser = $bdd->prepare("SELECT * FROM membres WHERE identifiant = ? AND motdepasse = ? ");
         $requser -> execute(array($identifiant,$mdp));  
             $userexist = $requser->rowCount();
          if($userexist == 1)
-        {
-           $userinfo = $requser->fetch();
-             $_SESSION['id'] = $userinfo['id'];
-             $_SESSION['identifiant'] = $userinfo['identifiant'];
-             $_SESSION['password'] = $userinfo['password'];
-             header("Location: entraineurs.php?id= ".$_SESSION['id']);
-        }
+            {
+                $userinfo = $requser->fetch();
+                $_SESSION['id'] = $userinfo['id'];
+                $_SESSION['identifiant'] = $userinfo['identifiant'];
+                $_SESSION['password'] = $userinfo['password'];
+                header("Location: entraineurs.php?id= ".$_SESSION['id']);
+                $_SESSION['connect'] = true;
+            }
         else{
-            echo "identifiant ou mot depasse incorrect ou inéxistant";
+                $erreur= 'identifiant ou mot de pas incorrect ou inéxistant';
         }
     }
 ?>
@@ -46,14 +48,6 @@ if(isset($_POST['formconnect']))
     </head>
 
     <body>
-
-        <header>
-            <a href="pageprincipal.php"> <img id="logo" src="img/logo2.png" alt="logostatisfoot" /></a>
-
-
-
-            <div id="titre">Statisfoot <br/> Ensemble, révélons les stars de demain!</div>
-        </header>
 
         <div class="container">
             <div class="row">
@@ -99,6 +93,8 @@ if(isset($_POST['formconnect']))
                                                 <div class="col-lg-12">
                                                     <div class="text-center">
                                                         <a href="" tabindex="5" class="forgot-password">mot de passe oublié ?</a>
+                                                        <?php if(isset ($erreur)){ 
+                                                        echo '<font color="red">'.$erreur.'</font>';}?>
                                                     </div>
                                                 </div>
                                             </div>
