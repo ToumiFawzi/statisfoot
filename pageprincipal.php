@@ -1,6 +1,5 @@
 <?php
 session_start(); // on démarre la session
-
        // si la variable de session existe
   if(isset($_SESSION['id']) && $_SESSION['connect'] == 1) 
     { 
@@ -20,10 +19,13 @@ session_start(); // on démarre la session
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="styles/style.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="styles/pp.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+    
+  
+    
     
     <h1>STATISFOOT</h1>
     <div class="centre">
@@ -32,7 +34,7 @@ session_start(); // on démarre la session
 
 
         <div class="first">
-            <a href="connexion.php"><img src="img/ambassadeurs.png" alt="ambassadeurs"></a>
+            <a href="connexion.php"><img src="img/crowd.jpg" alt="ambassadeurs"></a>
             <h4>Passionnés de foot</h4>
 
 
@@ -43,10 +45,10 @@ session_start(); // on démarre la session
         <div class="second">
                <?php
                  if(isset($_SESSION['id']) && $_SESSION['connect'] == 1){ ?>
-                <a href="entraineurs.php?id=<?php echo $_SESSION['id']; ?>"><img src="img/entraineur.png" alt="entraineur"></a> 
+                <a href="entraineurs.php?id=<?php echo $_SESSION['id']; ?>"><img src="img/entraineurs.jpg" alt="entraineur"></a> 
                  <?php }
                 else {?>
-                <a href="connexion.php"><img src="img/entraineur.png" alt="entraineur"></a> 
+                <a href="connexion.php"><img src="img/entraineurs.jpg" alt="entraineur"></a> 
                 <?php }
                 ?>
             <h4>Entraîneurs</h4>
@@ -55,7 +57,7 @@ session_start(); // on démarre la session
 
 
         <div class="third">
-            <a href="connexion.php"><img src= "img/recruteurs.png"  alt="recruteurs"></a>
+            <a href="connexion.php"><img src= "img/football-agent.jpg"  alt="recruteurs"></a>
             <h4>Recruteurs/Agents</h4>
 
             <p>Accédez à notre base de données de joueurs évoluant aux 4 coins du monde.</p>
@@ -63,6 +65,17 @@ session_start(); // on démarre la session
 
     </div>
 
+ 
+
+<?php
+    include("footer.php");?>
+
+    
+    
+    
+    
+    
+    
 </body>
 
 </html>

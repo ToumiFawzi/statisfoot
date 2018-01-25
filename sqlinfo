@@ -18,21 +18,15 @@ ALTER TABLE `equipes` ADD `niveau` VARCHAR(255) NOT NULL AFTER `equipe`;
 ALTER TABLE `equipes` ADD `entraineur_id` INT NOT NULL AFTER `club_id`;
 ALTER TABLE `equipes` ADD `club_id` INT NOT NULL AFTER `niveau`;
 
-CREATE TABLE `statisfoot`.`rencontres` ( `id` INT NOT NULL AUTO_INCREMENT , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `statisfoot`.`rencontres` ( `id` INT NOT NULL AUTO_INCREMENT , `entraineur_id` INT NOT NULL , `equipe_adv` VARCHAR(255) NOT NULL , `datetime` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 
 CREATE TABLE `statisfoot`.`clubs` ( `id` INT NOT NULL AUTO_INCREMENT , `club` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ALTER TABLE `clubs` ADD `numfff` VARCHAR(50) NOT NULL AFTER `club`;
 ALTER TABLE `clubs` ADD `categorie` VARCHAR(255) NOT NULL AFTER `niveau`;
 
+CREATE TABLE `statisfoot`.`participation` ( `id` INT NOT NULL AUTO_INCREMENT , `rencontres_id` INT NOT NULL , `joueurs_id` INT NOT NULL , `nbre_but` INT NOT NULL , `nbre_passe` INT NOT NULL , `nbre_tir` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
-SELECT *
-FROM membres
-INNER JOIN equipes ON membres.id = equipes.entraineur_id
-
-SELECT *
-FROM equipes
-INNER JOIN joueurs ON equipes.id = joueurs.equipe_id
 
 
 

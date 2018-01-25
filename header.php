@@ -23,8 +23,10 @@
                    </ul>
                </div>
            </div>
-       </nav>
-       <a href="pageprincipal.php"> <img id="logo" src="img/logo2.png" alt="logostatisfoot" /></a>
+<img src="img/statisfoot.jpg" id="statisfoot">
 
-       <div id="titre">Statisfoot <br/> Ensemble, révélons les stars de demain!</div>
+       </nav>
+       
+     
+
    </header>

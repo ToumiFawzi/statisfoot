@@ -1,67 +1,59 @@
-header {
-    background-color: #cc3433;
-    height: 200px;
 
-}
 
 #titre {
-    text-align: center;
-    color: #002466;
-    font-size: 40px;
+   text-align: center;
+   color: #002466;
+   font-size: 40px;
 }
 
 #boutton {
-    text-align: center;
+   text-align: center;
 }
 
 #logo {
-    float: left;
-    background-color: transparent;
-    height: 150px;
-    width: 150px;
+   float: left;
+   background-color: transparent;
+   height: 150px;
+   width: 150px;
 
 }
 
 
-img {
 
-    height: 200px;
-    width: 400px;
-
-
-}
 
 
 h3 {
 
-    color: #cc3433;
-    text-align: center;
-    font-family: fantasy;
+   color: #cc3433;
+   text-align: center;
+   font-family: fantasy;
 
 }
+
 
 
 
 h4 {
 
-    color: #e33c3c;
-    text-align: center;
+   color: #e33c3c;
+   text-align: center;
 
 }
 
 p {
 
-    color: #333366;
-    font-size: 13px;
-    font-family: fantasy;
+   color: #333366;
+   font-size: 13px;
+   font-family: fantasy;
 
 }
 
 
 
+
 button {
 
-    width: 180px;
+   width: 180px;
 
 }
 
@@ -69,25 +61,34 @@ button {
 .info {
 
 
-    height: 100px;
-    width: 200px;
-    margin-top: 50px;
-    font-size: 30px;
-    color:#333366;
-    
+   height: 100px;
+   width: 200px;
+   margin-top: 420px;
+   font-size: 30px;
+   color:#333366;
+   
 
 
 }
 
 tr,th,td{
-    color:#333366;
-    text-align: center;
-    width: 200px;
-    height: 100px;
-   
+   color:#333366;
+   text-align: center;
+   width: 200px;
+   height: 100px;
+ 
 }
 table,tr,th,td{
-    border: 2px solid #e33c3c;
-    
-    
+   border: 2px solid #e33c3c;
+   
+   
+}
+
+
+#statisfoot{
+   
+   width: 100%;
+   height: 500px;
+   
+   
 }

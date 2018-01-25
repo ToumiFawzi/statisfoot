@@ -25,8 +25,7 @@
                     </ul>
                 </div>
             </div>
+       <img src="img/statisfoot.jpg" id="statisfoot">
         </nav>
 
-        <a href="pageprincipal.php?id="> <img id="logo" src="img/logo2.png" alt="logostatisfoot" /></a>
-        <div id="titre">Statisfoot <br/> Ensemble, révélons les stars de demain!</div>
     </header>

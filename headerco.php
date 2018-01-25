@@ -18,12 +18,11 @@
                        <li><a href="http://statisfoot.com">Blog</a></li>
                    </ul>
                    <ul class="nav navbar-nav navbar-right">
-                       <li><a href="deconnexion.php"><span class="glyphicon glyphicon-user"></span> deconexion</a>
+                       <li><a href="deconnexion.php"><span class="glyphicon glyphicon-user"></span> deconnexion</a>
                    </ul>
                </div>
            </div>
+<img src="img/statisfoot.jpg" id="statisfoot">
        </nav>
-       <a href="pageprincipal.php"> <img id="logo" src="img/logo2.png" alt="logostatisfoot" /></a>
 
-       <div id="titre">Statisfoot <br/> Ensemble, révélons les stars de demain!</div>
    </header>

@@ -7,7 +7,7 @@ session_start();
 
 /*on récupère les valeurs du formulaire*/
 if(isset($_POST['formjoueur']))
-{
+   {
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $datedenaissance = $_POST['datedenaissance'];
@@ -18,33 +18,44 @@ if(isset($_POST['formjoueur']))
     $poste = $_POST['poste'];
     $situation = $_POST['situation'];
     
-    $reqjoint1 = $bdd ->prepare("SELECT equipes.id FROM equipes
-                                      INNER JOIN joueurs ON equipes.id = joueurs.equipe_id");
-        
-    $reqjoint1-> execute();
-    while ($donnee = $reqjoint1->fetch()){
+          $jointjoueur = $bdd ->prepare("SELECT equipes.id FROM equipes
+                                       WHERE entraineur_id = $_SESSION[id]
+                                       ");
+                      $jointjoueur->execute();
+              
+                      $joueur = 0;
+              
+                      while ($result = $jointjoueur->fetchColumn())
+                      {
+                       $joueur = intval ($result);
+                          
+                      }
     
-    
-    $reqjoint1->closeCursor();
-    
-    $req =$bdd->prepare("INSERT INTO `joueurs`(`nom`, `prenom`, `datedenaissance`, `nationalite`,`taille`, `poids`, `diplome`, `poste`, `situation`, `equipe_id` ) VALUES(:nom, :prenom, :datedenaissance, :nationalite, :taille, :poids, :diplome, :poste, :situation, :equipe_id)");
-       $req->execute(array(
-       'nom' => $nom,
-       'prenom' => $prenom,
-       'datedenaissance' => $datedenaissance,
-       'nationalite' => $nationalite,
-       'taille' => $taille,
-       'poids' => $poids, 
-       'diplome' => $diplome,
-       'poste' => $poste,
-       'situation' => $situation,
-        'equipe_id'=>$donnee['id'], 
+          $req =$bdd->prepare("INSERT INTO `joueurs`(`nom`, `prenom`, `datedenaissance`, `nationalite`,`taille`, `poids`, `diplome`, `poste`, `situation`, `equipe_id` ) VALUES(:nom, :prenom, :datedenaissance, :nationalite, :taille, :poids, :diplome, :poste, :situation, :equipe_id)");
+              $req->execute(array(
+              'nom' => $nom,
+              'prenom' => $prenom,
+              'datedenaissance' => $datedenaissance,
+              'nationalite' => $nationalite,
+              'taille' => $taille,
+              'poids' => $poids, 
+              'diplome' => $diplome,
+              'poste' => $poste,
+              'situation' => $situation,
+              'equipe_id'=>$joueur, 
            
        ));
-    }
-    echo 'Joueur ajouté avec succès!';
-    header('Location: creation.php');
+         if(req == true)
+         {
+             echo 'Joueur ajouté avec succès!';
+             header('Location: creation.php');
+         }
+        else
+        {
+            echo "erreur lors de l'inscription du joueur ";
+        }
 }
+       
 ?>
 <!doctype html>
 <html lang="fr">
@@ -215,7 +226,7 @@ if(isset($_POST['formjoueur']))
                     <button type="submit" name=" formjoueur" value="S'inscrire">Inscrire</button>
 
 
-                    <input id="retour" type="button" onclick="window.location.replace('effectif.php')" value="Terminer" />
+                    <input id="retour" type="button" onclick="window.location.replace('effectif.php?id=<?php echo $_SESSION['id']; ?>')" value="Terminer" />
 
                     <input id="annu" type="button" onclick="window.location.replace('creation.php')" value="Annuler" />
 
@@ -228,6 +239,8 @@ if(isset($_POST['formjoueur']))
 
 
 
+<?php
+    include("footer.php");?>
 
 
 </body>

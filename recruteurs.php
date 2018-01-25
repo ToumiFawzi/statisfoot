@@ -14,5 +14,8 @@ session_start();
 
    <body>
 en construction
+    <?php
+    include("footer.php");?>
+   
   </body>
   </html>
