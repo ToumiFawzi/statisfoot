@@ -8,7 +8,7 @@
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-                   <a class="navbar-brand" href="pageprincipal.php">Statisfoot</a>
+                   <a class="navbar-brand" href="index.php?id=<?php echo $_SESSION['id']; ?>">Statisfoot</a>
                </div>
                <div class="collapse navbar-collapse" id="myNavbar">
                    <ul class="nav navbar-nav">
