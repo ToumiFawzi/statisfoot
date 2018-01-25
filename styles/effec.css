@@ -1,0 +1,77 @@
+#statisfoot{
+    width: 100%;
+    height: 400px;
+}
+
+tr,th,td{
+   color:#333366;
+   text-align: center;
+   width: 200px;
+   height: 100px;
+ 
+}
+table,tr,th,td{
+   border: 2px solid #e33c3c;   
+}
+.info {
+
+
+   height: 100px;
+   width: 200px;
+   margin-top: 20px;
+   font-size: 30px;
+   color:#333366; 
+}
+
+h4 {
+
+   color: #e33c3c;
+   text-align: center;
+
+}
+
+h3 {
+
+   color: #cc3433;
+   text-align: center;
+   font-family: fantasy;
+
+}
+#boutton {
+   text-align: center;
+}
+
+footer{
+    width: 100%;
+    height: 150px;
+    border: 1px solid black;
+    background-color: #222222;
+    
+    
+}
+
+
+
+#fb{
+    height:50px;
+    width: 50px;
+    
+    
+}
+
+
+#twitter{
+    
+    height:50px;
+    width: 50px;
+    
+}
+
+
+#blogger{
+    
+       height:50px;
+    width: 50px;
+    
+    
+}

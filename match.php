@@ -35,7 +35,7 @@ include("header_entraineur.php");
     
 <form method="post" action="">
    
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
             <label for="numerojoueur">n°</label>
             <select id="numerojoueur" name="numerojoueur" >
@@ -65,7 +65,7 @@ include("header_entraineur.php");
     </div>
 
    
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
             <label for="poste">Poste</label>
             <select id="poste" name="poste" >
@@ -90,10 +90,10 @@ include("header_entraineur.php");
                             </select>
         </div>
     </div>
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
         <option selected>choisir...</option>
         
       <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
@@ -101,967 +101,780 @@ include("header_entraineur.php");
                 {
                ?>
                 
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
    <?php
     }
     ?>
       </select>
         </div>
     </div>
-    <div class="col-md-offset-1 col-md-2">
+    </form>
+    <form method="post" action="">
+   
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
+            <label for="numerojoueur">n°</label>
+            <select id="numerojoueur" name="numerojoueur" >
         <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+      </select>
+        </div>
+    </div>
+
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="poste">Poste</label>
+            <select id="poste" name="poste" >
+                                <option selected>choisir...</option>
+                                <option> G </option>
+                                <option>DLD </option>
+                                <option>DD </option>
+                                <option>DC </option>
+                                <option>DG </option>
+                                <option>DLG</option>
+                                <option>MDC </option>
+                                <option>MD </option>
+                                <option>MC</option>
+                                <option>MG </option>
+                                <option>MOC </option>
+                                <option>AD </option>
+                                <option>AT </option>
+                                <option>AG </option>
+                                <option>AVD </option>
+                                <option>BU </option>
+                                <option>AVG </option>
+                            </select>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
+        <option selected>choisir...</option>
+        
+      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
                 while($donne = $reqmatch->fetch())
                 {
                ?>
                 
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
    <?php
     }
-    ?>>
+    ?>
+      </select>
+        </div>
+    </div>
+    </form>
+    <form method="post" action="">
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="numerojoueur">n°</label>
+            <select id="numerojoueur" name="numerojoueur" >
+        <option selected>choisir...</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+      </select>
+        </div>
+    </div>
+
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="poste">Poste</label>
+            <select id="poste" name="poste" >
+                                <option selected>choisir...</option>
+                                <option> G </option>
+                                <option>DLD </option>
+                                <option>DD </option>
+                                <option>DC </option>
+                                <option>DG </option>
+                                <option>DLG</option>
+                                <option>MDC </option>
+                                <option>MD </option>
+                                <option>MC</option>
+                                <option>MG </option>
+                                <option>MOC </option>
+                                <option>AD </option>
+                                <option>AT </option>
+                                <option>AG </option>
+                                <option>AVD </option>
+                                <option>BU </option>
+                                <option>AVG </option>
+                            </select>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
+        <option selected>choisir...</option>
+        
+      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
+                while($donne = $reqmatch->fetch())
+                {
+               ?>
+                
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
+   <?php
+    }
+    ?>
+      </select>
+        </div>
+    </div>
+    </form>
+    <form method="post" action="">
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="numerojoueur">n°</label>
+            <select id="numerojoueur" name="numerojoueur" >
+        <option selected>choisir...</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+      </select>
+        </div>
+    </div>
+
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="poste">Poste</label>
+            <select id="poste" name="poste" >
+                                <option selected>choisir...</option>
+                                <option> G </option>
+                                <option>DLD </option>
+                                <option>DD </option>
+                                <option>DC </option>
+                                <option>DG </option>
+                                <option>DLG</option>
+                                <option>MDC </option>
+                                <option>MD </option>
+                                <option>MC</option>
+                                <option>MG </option>
+                                <option>MOC </option>
+                                <option>AD </option>
+                                <option>AT </option>
+                                <option>AG </option>
+                                <option>AVD </option>
+                                <option>BU </option>
+                                <option>AVG </option>
+                            </select>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
+        <option selected>choisir...</option>
+        
+      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
+                while($donne = $reqmatch->fetch())
+                {
+               ?>
+                
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
+   <?php
+    }
+    ?>
+      </select>
+        </div>
+    </div>
+    </form>
+    <form method="post" action="">
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="numerojoueur">n°</label>
+            <select id="numerojoueur" name="numerojoueur" >
+        <option selected>choisir...</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+      </select>
+        </div>
+    </div>
+
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="poste">Poste</label>
+            <select id="poste" name="poste" >
+                                <option selected>choisir...</option>
+                                <option> G </option>
+                                <option>DLD </option>
+                                <option>DD </option>
+                                <option>DC </option>
+                                <option>DG </option>
+                                <option>DLG</option>
+                                <option>MDC </option>
+                                <option>MD </option>
+                                <option>MC</option>
+                                <option>MG </option>
+                                <option>MOC </option>
+                                <option>AD </option>
+                                <option>AT </option>
+                                <option>AG </option>
+                                <option>AVD </option>
+                                <option>BU </option>
+                                <option>AVG </option>
+                            </select>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
+        <option selected>choisir...</option>
+        
+      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
+                while($donne = $reqmatch->fetch())
+                {
+               ?>
+                
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
+   <?php
+    }
+    ?>
+      </select>
+        </div>
+    </div>
+    </form>
+    <form method="post" action="">
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="numerojoueur">n°</label>
+            <select id="numerojoueur" name="numerojoueur" >
+        <option selected>choisir...</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+      </select>
+        </div>
+    </div>
+
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="poste">Poste</label>
+            <select id="poste" name="poste" >
+                                <option selected>choisir...</option>
+                                <option> G </option>
+                                <option>DLD </option>
+                                <option>DD </option>
+                                <option>DC </option>
+                                <option>DG </option>
+                                <option>DLG</option>
+                                <option>MDC </option>
+                                <option>MD </option>
+                                <option>MC</option>
+                                <option>MG </option>
+                                <option>MOC </option>
+                                <option>AD </option>
+                                <option>AT </option>
+                                <option>AG </option>
+                                <option>AVD </option>
+                                <option>BU </option>
+                                <option>AVG </option>
+                            </select>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
+        <option selected>choisir...</option>
+        
+      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
+                while($donne = $reqmatch->fetch())
+                {
+               ?>
+                
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
+   <?php
+    }
+    ?>
+      </select>
+        </div>
+    </div>
+    </form>
+    <form method="post" action="">
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="numerojoueur">n°</label>
+            <select id="numerojoueur" name="numerojoueur" >
+        <option selected>choisir...</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+      </select>
+        </div>
+    </div>
+
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="poste">Poste</label>
+            <select id="poste" name="poste" >
+                                <option selected>choisir...</option>
+                                <option> G </option>
+                                <option>DLD </option>
+                                <option>DD </option>
+                                <option>DC </option>
+                                <option>DG </option>
+                                <option>DLG</option>
+                                <option>MDC </option>
+                                <option>MD </option>
+                                <option>MC</option>
+                                <option>MG </option>
+                                <option>MOC </option>
+                                <option>AD </option>
+                                <option>AT </option>
+                                <option>AG </option>
+                                <option>AVD </option>
+                                <option>BU </option>
+                                <option>AVG </option>
+                            </select>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
+        <option selected>choisir...</option>
+        
+      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
+                while($donne = $reqmatch->fetch())
+                {
+               ?>
+                
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
+   <?php
+    }
+    ?>
+      </select>
+        </div>
+    </div>
+    </form>
+    <form method="post" action="">
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="numerojoueur">n°</label>
+            <select id="numerojoueur" name="numerojoueur" >
+        <option selected>choisir...</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+      </select>
+        </div>
+    </div>
+
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="poste">Poste</label>
+            <select id="poste" name="poste" >
+                                <option selected>choisir...</option>
+                                <option> G </option>
+                                <option>DLD </option>
+                                <option>DD </option>
+                                <option>DC </option>
+                                <option>DG </option>
+                                <option>DLG</option>
+                                <option>MDC </option>
+                                <option>MD </option>
+                                <option>MC</option>
+                                <option>MG </option>
+                                <option>MOC </option>
+                                <option>AD </option>
+                                <option>AT </option>
+                                <option>AG </option>
+                                <option>AVD </option>
+                                <option>BU </option>
+                                <option>AVG </option>
+                            </select>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
+        <option selected>choisir...</option>
+        
+      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
+                while($donne = $reqmatch->fetch())
+                {
+               ?>
+                
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
+   <?php
+    }
+    ?>
+      </select>
+        </div>
+    </div>
+    </form>
+    <form method="post" action="">
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="numerojoueur">n°</label>
+            <select id="numerojoueur" name="numerojoueur" >
+        <option selected>choisir...</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+      </select>
+        </div>
+    </div>
+
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="poste">Poste</label>
+            <select id="poste" name="poste" >
+                                <option selected>choisir...</option>
+                                <option> G </option>
+                                <option>DLD </option>
+                                <option>DD </option>
+                                <option>DC </option>
+                                <option>DG </option>
+                                <option>DLG</option>
+                                <option>MDC </option>
+                                <option>MD </option>
+                                <option>MC</option>
+                                <option>MG </option>
+                                <option>MOC </option>
+                                <option>AD </option>
+                                <option>AT </option>
+                                <option>AG </option>
+                                <option>AVD </option>
+                                <option>BU </option>
+                                <option>AVG </option>
+                            </select>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
+        <option selected>choisir...</option>
+        
+      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
+                while($donne = $reqmatch->fetch())
+                {
+               ?>
+                
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
+   <?php
+    }
+    ?>
+      </select>
+        </div>
+    </div>
+    </form>
+    <form method="post" action="">
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="numerojoueur">n°</label>
+            <select id="numerojoueur" name="numerojoueur" >
+        <option selected>choisir...</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+      </select>
+        </div>
+    </div>
+
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="poste">Poste</label>
+            <select id="poste" name="poste" >
+                                <option selected>choisir...</option>
+                                <option> G </option>
+                                <option>DLD </option>
+                                <option>DD </option>
+                                <option>DC </option>
+                                <option>DG </option>
+                                <option>DLG</option>
+                                <option>MDC </option>
+                                <option>MD </option>
+                                <option>MC</option>
+                                <option>MG </option>
+                                <option>MOC </option>
+                                <option>AD </option>
+                                <option>AT </option>
+                                <option>AG </option>
+                                <option>AVD </option>
+                                <option>BU </option>
+                                <option>AVG </option>
+                            </select>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
+        <option selected>choisir...</option>
+        
+      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
+                while($donne = $reqmatch->fetch())
+                {
+               ?>
+                
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
+   <?php
+    }
+    ?>
+      </select>
+        </div>
+    </div>
+    </form>
+    <form method="post" action="">
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="numerojoueur">n°</label>
+            <select id="numerojoueur" name="numerojoueur" >
+        <option selected>choisir...</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+      </select>
+        </div>
+    </div>
+
+   
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="poste">Poste</label>
+            <select id="poste" name="poste" >
+                                <option selected>choisir...</option>
+                                <option> G </option>
+                                <option>DLD </option>
+                                <option>DD </option>
+                                <option>DC </option>
+                                <option>DG </option>
+                                <option>DLG</option>
+                                <option>MDC </option>
+                                <option>MD </option>
+                                <option>MC</option>
+                                <option>MG </option>
+                                <option>MOC </option>
+                                <option>AD </option>
+                                <option>AT </option>
+                                <option>AG </option>
+                                <option>AVD </option>
+                                <option>BU </option>
+                                <option>AVG </option>
+                            </select>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-3">
+        <div class="form-group">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
+        <option selected>choisir...</option>
+        
+      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
+                while($donne = $reqmatch->fetch())
+                {
+               ?>
+                
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
+   <?php
+    }
+    ?>
       </select>
         </div>
     </div>
     </form>
     
-   <form method="post" action="">
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="numerojoueur">n°</label>
-            <select id="numerojoueur" name="numerojoueur" >
-        <option selected>choisir...</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-      </select>
-        </div>
-    </div>
-
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="poste">Poste</label>
-            <select id="poste" name="poste" >
-                                <option selected>choisir...</option>
-                                <option> G </option>
-                                <option>DLD </option>
-                                <option>DD </option>
-                                <option>DC </option>
-                                <option>DG </option>
-                                <option>DLG</option>
-                                <option>MDC </option>
-                                <option>MD </option>
-                                <option>MC</option>
-                                <option>MG </option>
-                                <option>MOC </option>
-                                <option>AD </option>
-                                <option>AT </option>
-                                <option>AG </option>
-                                <option>AVD </option>
-                                <option>BU </option>
-                                <option>AVG </option>
-                            </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
-        <option selected>choisir...</option>
-        
-      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
-   <?php
-    }
-    ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
-    </form>
-    
-     <form method="post" action="">
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="numerojoueur">n°</label>
-            <select id="numerojoueur" name="numerojoueur" >
-        <option selected>choisir...</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-      </select>
-        </div>
-    </div>
-
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="poste">Poste</label>
-            <select id="poste" name="poste" >
-                                <option selected>choisir...</option>
-                                <option> G </option>
-                                <option>DLD </option>
-                                <option>DD </option>
-                                <option>DC </option>
-                                <option>DG </option>
-                                <option>DLG</option>
-                                <option>MDC </option>
-                                <option>MD </option>
-                                <option>MC</option>
-                                <option>MG </option>
-                                <option>MOC </option>
-                                <option>AD </option>
-                                <option>AT </option>
-                                <option>AG </option>
-                                <option>AVD </option>
-                                <option>BU </option>
-                                <option>AVG </option>
-                            </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
-        <option selected>choisir...</option>
-        
-      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
-   <?php
-    }
-    ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
-    </form>
-    <form method="post" action="">
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="numerojoueur">n°</label>
-            <select id="numerojoueur" name="numerojoueur" >
-        <option selected>choisir...</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-      </select>
-        </div>
-    </div>
-
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="poste">Poste</label>
-            <select id="poste" name="poste" >
-                                <option selected>choisir...</option>
-                                <option> G </option>
-                                <option>DLD </option>
-                                <option>DD </option>
-                                <option>DC </option>
-                                <option>DG </option>
-                                <option>DLG</option>
-                                <option>MDC </option>
-                                <option>MD </option>
-                                <option>MC</option>
-                                <option>MG </option>
-                                <option>MOC </option>
-                                <option>AD </option>
-                                <option>AT </option>
-                                <option>AG </option>
-                                <option>AVD </option>
-                                <option>BU </option>
-                                <option>AVG </option>
-                            </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
-        <option selected>choisir...</option>
-        
-      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
-   <?php
-    }
-    ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
-    </form>
-    <form method="post" action="">
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="numerojoueur">n°</label>
-            <select id="numerojoueur" name="numerojoueur" >
-        <option selected>choisir...</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-      </select>
-        </div>
-    </div>
-
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="poste">Poste</label>
-            <select id="poste" name="poste" >
-                                <option selected>choisir...</option>
-                                <option> G </option>
-                                <option>DLD </option>
-                                <option>DD </option>
-                                <option>DC </option>
-                                <option>DG </option>
-                                <option>DLG</option>
-                                <option>MDC </option>
-                                <option>MD </option>
-                                <option>MC</option>
-                                <option>MG </option>
-                                <option>MOC </option>
-                                <option>AD </option>
-                                <option>AT </option>
-                                <option>AG </option>
-                                <option>AVD </option>
-                                <option>BU </option>
-                                <option>AVG </option>
-                            </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
-        <option selected>choisir...</option>
-        
-      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
-   <?php
-    }
-    ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
-    </form>
-    <form method="post" action="">
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="numerojoueur">n°</label>
-            <select id="numerojoueur" name="numerojoueur" >
-        <option selected>choisir...</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-      </select>
-        </div>
-    </div>
-
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="poste">Poste</label>
-            <select id="poste" name="poste" >
-                                <option selected>choisir...</option>
-                                <option> G </option>
-                                <option>DLD </option>
-                                <option>DD </option>
-                                <option>DC </option>
-                                <option>DG </option>
-                                <option>DLG</option>
-                                <option>MDC </option>
-                                <option>MD </option>
-                                <option>MC</option>
-                                <option>MG </option>
-                                <option>MOC </option>
-                                <option>AD </option>
-                                <option>AT </option>
-                                <option>AG </option>
-                                <option>AVD </option>
-                                <option>BU </option>
-                                <option>AVG </option>
-                            </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
-        <option selected>choisir...</option>
-        
-      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
-   <?php
-    }
-    ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
-    </form>
-    <form method="post" action="">
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="numerojoueur">n°</label>
-            <select id="numerojoueur" name="numerojoueur" >
-        <option selected>choisir...</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-      </select>
-        </div>
-    </div>
-
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="poste">Poste</label>
-            <select id="poste" name="poste" >
-                                <option selected>choisir...</option>
-                                <option> G </option>
-                                <option>DLD </option>
-                                <option>DD </option>
-                                <option>DC </option>
-                                <option>DG </option>
-                                <option>DLG</option>
-                                <option>MDC </option>
-                                <option>MD </option>
-                                <option>MC</option>
-                                <option>MG </option>
-                                <option>MOC </option>
-                                <option>AD </option>
-                                <option>AT </option>
-                                <option>AG </option>
-                                <option>AVD </option>
-                                <option>BU </option>
-                                <option>AVG </option>
-                            </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
-        <option selected>choisir...</option>
-        
-      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
-   <?php
-    }
-    ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
-    </form>
-    <form method="post" action="">
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="numerojoueur">n°</label>
-            <select id="numerojoueur" name="numerojoueur" >
-        <option selected>choisir...</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-      </select>
-        </div>
-    </div>
-
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="poste">Poste</label>
-            <select id="poste" name="poste" >
-                                <option selected>choisir...</option>
-                                <option> G </option>
-                                <option>DLD </option>
-                                <option>DD </option>
-                                <option>DC </option>
-                                <option>DG </option>
-                                <option>DLG</option>
-                                <option>MDC </option>
-                                <option>MD </option>
-                                <option>MC</option>
-                                <option>MG </option>
-                                <option>MOC </option>
-                                <option>AD </option>
-                                <option>AT </option>
-                                <option>AG </option>
-                                <option>AVD </option>
-                                <option>BU </option>
-                                <option>AVG </option>
-                            </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
-        <option selected>choisir...</option>
-        
-      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
-   <?php
-    }
-    ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
-    </form>
-    <form method="post" action="">
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="numerojoueur">n°</label>
-            <select id="numerojoueur" name="numerojoueur" >
-        <option selected>choisir...</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-      </select>
-        </div>
-    </div>
-
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="poste">Poste</label>
-            <select id="poste" name="poste" >
-                                <option selected>choisir...</option>
-                                <option> G </option>
-                                <option>DLD </option>
-                                <option>DD </option>
-                                <option>DC </option>
-                                <option>DG </option>
-                                <option>DLG</option>
-                                <option>MDC </option>
-                                <option>MD </option>
-                                <option>MC</option>
-                                <option>MG </option>
-                                <option>MOC </option>
-                                <option>AD </option>
-                                <option>AT </option>
-                                <option>AG </option>
-                                <option>AVD </option>
-                                <option>BU </option>
-                                <option>AVG </option>
-                            </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
-        <option selected>choisir...</option>
-        
-      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
-   <?php
-    }
-    ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
-    </form>
-    <form method="post" action="">
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="numerojoueur">n°</label>
-            <select id="numerojoueur" name="numerojoueur" >
-        <option selected>choisir...</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-      </select>
-        </div>
-    </div>
-
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="poste">Poste</label>
-            <select id="poste" name="poste" >
-                                <option selected>choisir...</option>
-                                <option> G </option>
-                                <option>DLD </option>
-                                <option>DD </option>
-                                <option>DC </option>
-                                <option>DG </option>
-                                <option>DLG</option>
-                                <option>MDC </option>
-                                <option>MD </option>
-                                <option>MC</option>
-                                <option>MG </option>
-                                <option>MOC </option>
-                                <option>AD </option>
-                                <option>AT </option>
-                                <option>AG </option>
-                                <option>AVD </option>
-                                <option>BU </option>
-                                <option>AVG </option>
-                            </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
-        <option selected>choisir...</option>
-        
-      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
-   <?php
-    }
-    ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
-    </form>
-    <form method="post" action="">
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="numerojoueur">n°</label>
-            <select id="numerojoueur" name="numerojoueur" >
-        <option selected>choisir...</option>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-      </select>
-        </div>
-    </div>
-
-   
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="poste">Poste</label>
-            <select id="poste" name="poste" >
-                                <option selected>choisir...</option>
-                                <option> G </option>
-                                <option>DLD </option>
-                                <option>DD </option>
-                                <option>DC </option>
-                                <option>DG </option>
-                                <option>DLG</option>
-                                <option>MDC </option>
-                                <option>MD </option>
-                                <option>MC</option>
-                                <option>MG </option>
-                                <option>MOC </option>
-                                <option>AD </option>
-                                <option>AT </option>
-                                <option>AG </option>
-                                <option>AVD </option>
-                                <option>BU </option>
-                                <option>AVG </option>
-                            </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
-        <option selected>choisir...</option>
-        
-      <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
-   <?php
-    }
-    ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
-    </form>
      <center><h1> Remplaçant</h1> </center>
- <form method="post" action="">
+     
+<form method="post" action="">
    
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
             <label for="numerojoueur">n°</label>
             <select id="numerojoueur" name="numerojoueur" >
@@ -1091,7 +904,7 @@ include("header_entraineur.php");
     </div>
 
    
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
             <label for="poste">Poste</label>
             <select id="poste" name="poste" >
@@ -1116,10 +929,10 @@ include("header_entraineur.php");
                             </select>
         </div>
     </div>
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
         <option selected>choisir...</option>
         
       <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
@@ -1127,34 +940,17 @@ include("header_entraineur.php");
                 {
                ?>
                 
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
    <?php
     }
     ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
       </select>
         </div>
     </div>
     </form>
-     <form method="post" action="">
+    <form method="post" action="">
    
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
             <label for="numerojoueur">n°</label>
             <select id="numerojoueur" name="numerojoueur" >
@@ -1184,7 +980,7 @@ include("header_entraineur.php");
     </div>
 
    
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
             <label for="poste">Poste</label>
             <select id="poste" name="poste" >
@@ -1209,10 +1005,10 @@ include("header_entraineur.php");
                             </select>
         </div>
     </div>
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
         <option selected>choisir...</option>
         
       <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
@@ -1220,34 +1016,17 @@ include("header_entraineur.php");
                 {
                ?>
                 
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
    <?php
     }
     ?>
-      </select>
-        </div>
-    </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
       </select>
         </div>
     </div>
     </form>
-     <form method="post" action="">
+    <form method="post" action="">
    
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
             <label for="numerojoueur">n°</label>
             <select id="numerojoueur" name="numerojoueur" >
@@ -1277,7 +1056,7 @@ include("header_entraineur.php");
     </div>
 
    
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
             <label for="poste">Poste</label>
             <select id="poste" name="poste" >
@@ -1302,10 +1081,10 @@ include("header_entraineur.php");
                             </select>
         </div>
     </div>
-    <div class="col-md-offset-1 col-md-2">
+    <div class="col-md-offset-1 col-md-3">
         <div class="form-group">
-            <label for="nomjoueur">Nom</label>
-            <select id="nomjoueur" name="nomjoueur">
+            <label for="joueur">Joueur</label>
+            <select id="joueur" name="nomjoueur">
         <option selected>choisir...</option>
         
       <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
@@ -1313,31 +1092,23 @@ include("header_entraineur.php");
                 {
                ?>
                 
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom'];?></option>
+        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['nom']." ". $donne['prenom'];?></option>
    <?php
     }
     ?>
       </select>
         </div>
     </div>
-    <div class="col-md-offset-1 col-md-2">
-        <div class="form-group">
-            <label for="prenomjoueur">Prénom</label>
-            <select id="prenomjoueur" name="prenomjoueur">
-        <option selected>choisir...</option>
-         <?php  $reqmatch = $bdd ->query("SELECT nom, prenom FROM joueurs WHERE equipe_id = (SELECT equipes.id FROM equipes WHERE entraineur_id = $_SESSION[id])");
-                while($donne = $reqmatch->fetch())
-                {
-               ?>
-                
-        <option value="<?Php echo $donne['joueurs']?>"><?php echo $donne['prenom'];?></option>
-   <?php
-    }
-    ?>>
-      </select>
-        </div>
-    </div>
- </form>
+    </form>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
    <?php
     include("footer.php");?>
  

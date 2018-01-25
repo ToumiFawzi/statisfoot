@@ -56,7 +56,7 @@ if(isset($_POST['formconnect']))
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-6">
-                                    Se connecter
+                                    Pas de compte ?
                                 </div>
                                 <div class="col-xs-6">
                                     S'enregitrer en tant qu'<br/>

@@ -24,7 +24,7 @@ session_start();
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-     <link href="styles/effectif.css" media="all" rel="stylesheet" type="text/css" />
+     <link href="styles/effec.css" media="all" rel="stylesheet" type="text/css" />
     
 </head>
 
@@ -65,13 +65,11 @@ session_start();
     <div class="container">
         <h3>Effectif</h3>
 
-
         <div class="info">Entrainé par:
             <?php echo $userinfo['nom'];?>
             <?php echo $userinfo['prenom'];?> <br/>
-
         </div>
-        <h4> Votre Effectif</h4>
+      <h4> Votre Effectif</h4>
 
         <center>
             <table>
@@ -120,18 +118,20 @@ catch(Exception $e)
     <br/>
 
     <div id="boutton">
-        <a href="creation.php"><button type="button" class="btn btn-primary btn-lg"><p>Créer votre effectif </p></button></a>
+        <a href="creation.php?id=<?php echo $_SESSION['id']; ?>"><button type="button" class="btn btn-primary btn-lg"><p>Créer votre effectif </p></button></a>
     </div>
-
-
+    <br/>
+    <br/>
+    <br/>
+    
 <footer>
     
     <br/>
      <br/>
      <br/>
-    <a class="dropdown-toggle" data-toggle="dropdown" href="http://www.facebook.com/Statisfoot/"><img src="img/icon-facebook.svg" id="fb"></a>
+   <center> <a class="dropdown-toggle" data-toggle="dropdown" href="http://www.facebook.com/Statisfoot/"><img src="img/icon-facebook.svg" id="fb"></a>
     <a href="http://twitter.com/STATISFOOT_"><img src="img/twitter-icon.png" id="twitter"></a>
- <img src="img/blogger.png" id="blogger">    
+ <img src="img/blogger.png" id="blogger"> </center>   
 </footer>
    
 
