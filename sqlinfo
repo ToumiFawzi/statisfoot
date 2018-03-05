@@ -1,11 +1,3 @@
-bdd statisfoot info
-nom d'utilisateur : statisfoot
-nom d'hote: local, localhost
-mot de passe:yjnRTeqXKgStt29S
-
-script création utilisateur
-CREATE USER 'statisfoot'@'localhost' IDENTIFIED WITH mysql_native_password AS '***';GRANT USAGE ON *.* TO 'statisfoot'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;CREATE DATABASE IF NOT EXISTS `statisfoot`;GRANT ALL PRIVILEGES ON `statisfoot`.* TO 'statisfoot'@'localhost';GRANT ALL PRIVILEGES ON `statisfoot\_%`.* TO 'statisfoot'@'localhost';
-
 
 CREATE TABLE `statisfoot`.`membres` ( `id` INT NOT NULL AUTO_INCREMENT , `nom` TEXT NOT NULL , `prenom` TEXT NOT NULL , `ville` TEXT NOT NULL , `pays`  TEXT NOT NULL , `tel` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `identifiant` VARCHAR(255) NOT NULL , `motdepasse` TEXT NOT NULL , `profil` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB; 
 
@@ -15,15 +7,14 @@ ALTER TABLE `joueurs` ADD `equipe_id` INT NOT NULL AFTER `situation`;
 
 CREATE TABLE `statisfoot`.`equipes` ( `id` INT NOT NULL AUTO_INCREMENT , `equipe` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ALTER TABLE `equipes` ADD `niveau` VARCHAR(255) NOT NULL AFTER `equipe`;
-ALTER TABLE `equipes` ADD `entraineur_id` INT NOT NULL AFTER `club_id`;
-ALTER TABLE `equipes` ADD `club_id` INT NOT NULL AFTER `niveau`;
+ALTER TABLE `equipes` ADD `club_id` INT NOT NULL AFTER `niveau`, ADD `entraineur_id` INT NOT NULL AFTER `club_id`;
 
 CREATE TABLE `statisfoot`.`rencontres` ( `id` INT NOT NULL AUTO_INCREMENT , `entraineur_id` INT NOT NULL , `equipe_adv` VARCHAR(255) NOT NULL , `datetime` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 
 CREATE TABLE `statisfoot`.`clubs` ( `id` INT NOT NULL AUTO_INCREMENT , `club` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ALTER TABLE `clubs` ADD `numfff` VARCHAR(50) NOT NULL AFTER `club`;
-ALTER TABLE `clubs` ADD `categorie` VARCHAR(255) NOT NULL AFTER `niveau`;
+ALTER TABLE `clubs` ADD `categorie` INT NOT NULL AFTER `numfff`; 
 
 CREATE TABLE `statisfoot`.`participation` ( `id` INT NOT NULL AUTO_INCREMENT , `rencontres_id` INT NOT NULL , `joueurs_id` INT NOT NULL , `nbre_but` INT NOT NULL , `nbre_passe` INT NOT NULL , `nbre_tir` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 

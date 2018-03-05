@@ -1,21 +1,4 @@
-<?php
-    /*$filename_user = "identifiantsjson.txt";
-    $login = file_get_contents($filename_user);/* appel de fonction pour lire le contenu du fichier*/
-   /* $user_tab = json_decode($login, true);*/
-   
-/*var_dump($user_tab); permet d'afficher avec plus d'info que echo "exit" coupe le code
-exit();*/
-   /* $message = "";
-    
-    if(isset($_POST['login']) && isset($_POST['mdp'])) { /* isset permet de determiner si une variable est pas vide*/
-      /*  if($_POST['login'] === $user_tab["identifiant"] && $_POST['mdp'] === $user_tab["password"]) {
-            $isAuthentifie = true;  
-        } else {
-            $isAuthentifie = false;
-            $message = "erreur d'authentification!";
-        }
-    } */  
-?>
+
 
     <!DOCTYPE html>
     <html lang="fr">
